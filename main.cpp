@@ -1,4 +1,8 @@
-#include <QGuiApplication>
+
+#include "vasearchmodel.h"
+#include "vadirector.h"
+
+#include <QApplication>
 #include <QQmlApplicationEngine>
 
 #include <QLocale>
@@ -9,7 +13,7 @@ int main(int argc, char *argv[])
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
@@ -22,6 +26,11 @@ int main(int argc, char *argv[])
     }
 
     QQmlApplicationEngine engine;
+
+    qmlRegisterType<VASearchModel>("com.example.va", 1, 0, "SearchModel");
+    qmlRegisterType<VADirector>("com.example.va", 1, 0, "Director");
+
+
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {

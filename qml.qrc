@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>VAToolBar.qml</file>
+        <file>VASearchBox.qml</file>
     </qresource>
 </RCC>
