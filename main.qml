@@ -9,10 +9,21 @@ Window {
     visible: true
     title: qsTr("Hello World")
 
+    Item {
+        id: firstItem
+        Component.onCompleted: {
+            console.info("+++ firstItem::onCompleted.");
+        }
+    }
+
     VA.Director{
         id: director
 
         window: root
+
+        Component.onCompleted: {
+            console.info("+++ director::onCompleted.");
+        }
     }
 
     VAToolBar {
@@ -20,6 +31,13 @@ Window {
 
         width: parent.width
         height: 64
+        Component.onCompleted: {
+            console.info("+++ toolbar::onCompleted.");
+        }
+    }
+
+    Component.onCompleted: {
+        console.info("+++ root::onCompleted.");
     }
 
 

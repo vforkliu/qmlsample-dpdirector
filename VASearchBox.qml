@@ -17,9 +17,14 @@ Item {
 //        window: control.window
 
         Component.onCompleted: {
+            console.info("+++ searchModel::onCompleted.");
             console.debug("searchModel finished:" + control);
             // searchModel.setRootWindow(control.window);
             searchModel.window = control
         }
+    }
+
+    Component.onCompleted: {
+        console.info("+++ control VASearchBox::onCompleted.");
     }
 }

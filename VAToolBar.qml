@@ -8,6 +8,10 @@ Item {
         anchors.fill: parent
 
         color: "#cccccc"
+
+        Component.onCompleted: {
+            console.info("+++ background::onCompleted.");
+        }
     }
 
     VASearchBox {
@@ -18,5 +22,13 @@ Item {
         anchors.right: parent.right
         anchors.rightMargin: 10
         anchors.verticalCenter: parent.verticalCenter
+
+        Component.onCompleted: {
+            console.info("+++ searchbox::onCompleted.");
+        }
+    }
+
+    Component.onCompleted: {
+        console.info("+++ control VAToolBar::onCompleted.");
     }
 }

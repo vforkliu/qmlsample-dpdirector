@@ -48,6 +48,7 @@ VADirector::~VADirector()
 void VADirector::setWindow(const QQuickWindow *window)
 {
     qDebug() << "setWindow";
+    Q_ASSERT(window != nullptr);
     if (window) {
         qDebug() << "window Id:" << window->winId();
         s_mgr.add(window->winId(), this);
